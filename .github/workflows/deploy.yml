@@ -13,7 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Use tag
-        run: echo "$INPUT_VERSION"
+        run: |
+          echo "Version: ${{ github.event.inputs.version }}"
 #  job2:
 #    runs-on: ubuntu-latest
 #    needs: job1
