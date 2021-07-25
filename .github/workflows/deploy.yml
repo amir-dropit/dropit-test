@@ -1,0 +1,21 @@
+name: deploy-tag-to-qa
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number'
+        required: true
+        default: 'v1.1.1'
+
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use tag
+        run: echo $INPUT_VERSION
+#  job2:
+#    runs-on: ubuntu-latest
+#    needs: job1
+#    steps:
+#      - run: echo ${{needs.job1.outputs.output1}}
