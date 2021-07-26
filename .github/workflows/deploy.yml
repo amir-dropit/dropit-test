@@ -13,10 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: stefanzweifel/git-auto-commit-action@v4
       - name: Tag version
         run: |
-          yarn version --new-version ${{ github.event.inputs.version }}
+          yarn version --no-commit-hooks --new-version ${{ github.event.inputs.version }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'v${{ github.event.inputs.version }}'
+
 #  job2:
 #    runs-on: ubuntu-latest
 #    needs: job1
