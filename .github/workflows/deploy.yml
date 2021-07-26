@@ -12,9 +12,8 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: ls
-        run: ls
-      - name: Use tag
+      - uses: actions/checkout@v2
+      - name: Tag version
         run: |
           yarn version --new-version ${{ github.event.inputs.version }}
 #  job2:
