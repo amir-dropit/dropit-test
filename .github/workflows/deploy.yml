@@ -1,11 +1,11 @@
 name: deploy-tag-to-qa
 on:
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version number'
-        required: true
-        default: '1.1.1'
+#    inputs:
+#      version:
+#        description: 'Version number'
+#        required: true
+#        default: '1.1.1'
 
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Tag version
         run: |
-          yarn version --no-commit-hooks --no-git-tag-version --new-version ${{ github.event.inputs.version }}
+          yarn version --no-commit-hooks --no-git-tag-version --patch
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'v${{ github.event.inputs.version }}'
