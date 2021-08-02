@@ -18,7 +18,7 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           yarn version --patch
-#      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v4
 #        with:
 #          commit_message: 'v${{ env.VERSION }}'
 #          tagging_message: 'v${{ env.VERSION }}'
@@ -32,4 +32,4 @@ jobs:
           ref: 'qa'
       - name: 'push to qa'
         run: |
-          git reset main --hard
+          git reset origin/main --hard
