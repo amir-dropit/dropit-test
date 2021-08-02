@@ -18,8 +18,8 @@ jobs:
           yarn version --no-commit-hooks --no-git-tag-version --patch
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'v${{ github.event.inputs.version }}'
-          tagging_message: 'v${{ github.event.inputs.version }}'
+          commit_message: 'v${{ env.VERSION }}'
+          tagging_message: 'v${{ env.VERSION }}'
 
   job2:
     runs-on: ubuntu-latest
