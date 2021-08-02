@@ -9,11 +9,11 @@ on:
 
 
 jobs:
-  job1:
+  new_version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Tag version
+      - name: Increment version
         run: |
           yarn version --no-commit-hooks --no-git-tag-version --patch
       - uses: stefanzweifel/git-auto-commit-action@v4
@@ -21,8 +21,13 @@ jobs:
           commit_message: 'v${{ github.event.inputs.version }}'
           tagging_message: 'v${{ github.event.inputs.version }}'
 
-#  job2:
-#    runs-on: ubuntu-latest
-#    needs: job1
-#    steps:
-#      - run: echo ${{needs.job1.outputs.output1}}
+  job2:
+    runs-on: ubuntu-latest
+    needs: new_version
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'qa'
+      - name: 'push to qa'
+        run: |
+          git reset dev --hard
