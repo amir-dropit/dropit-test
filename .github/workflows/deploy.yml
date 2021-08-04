@@ -13,10 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Increment version
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
+          yarn config set version-git-tag true
+          yarn config set version-commit-hooks true
           yarn version --patch
       - uses: stefanzweifel/git-auto-commit-action@v4
 #        with:
@@ -32,4 +36,9 @@ jobs:
           ref: 'qa'
       - name: 'push to qa'
         run: |
-          git reset origin/main --hard
+          git pull --all
+          git merge main --ff-only
+      - uses: stefanzweifel/git-auto-commit-action@v4
+
+
+
