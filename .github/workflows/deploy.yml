@@ -23,9 +23,9 @@ jobs:
           yarn config set version-commit-hooks true
           yarn version --patch
       - uses: stefanzweifel/git-auto-commit-action@v4
-#        with:
-#          commit_message: 'v${{ env.VERSION }}'
-#          tagging_message: 'v${{ env.VERSION }}'
+        with:
+          commit_message: 'v$npm_package_version'
+          tagging_message: 'v${{ env.VERSION }}'
 
   job2:
     runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
       - name: 'push to qa'
         run: |
           git pull --all
-          git merge main --ff-only
+          git merge origin/main --ff-only
       - uses: stefanzweifel/git-auto-commit-action@v4
 
 
