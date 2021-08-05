@@ -39,7 +39,7 @@
     "deploy": "aws s3 sync build/ s3://dropit-test",
     "eject": "react-scripts eject",
     "postversion": "echo \"::set-output name=msg::$$npm_package_version\"",
-    "v_patch": "yarn version --patch && git push --tags"
+    "v_patch": "yarn version --patch && git push --follow-tags"
   },
   "eslintConfig": {
     "extends": "react-app"
