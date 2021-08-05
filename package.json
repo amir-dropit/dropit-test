@@ -1,6 +1,6 @@
 {
   "name": "dropit-test",
-  "version": "1.7.17",
+  "version": "1.7.18",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
