@@ -1,10 +1,9 @@
 name: deploy-tag-to-qa
 on:
-  workflow_dispatch:
   push:
-    # Sequence of patterns matched against refs/tags
+    # Pattern matched against refs/tags
     tags:
-      - v1.*
+      - '**'
 
 jobs:
 #  new_version:
