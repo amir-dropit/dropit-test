@@ -2,10 +2,7 @@ name: deploy-tag-to-qa
 on:
   workflow_dispatch:
   push:
-    branches:
-      # Push events on main branch
-      - main
-      # Sequence of patterns matched against refs/tags
+    # Sequence of patterns matched against refs/tags
     tags:
       - v*
 
