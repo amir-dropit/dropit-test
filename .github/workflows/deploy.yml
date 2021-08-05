@@ -2,7 +2,7 @@ name: deploy-tag-to-qa
 on:
   push:
     # Pattern matched against refs/tags
-    tags: ['*']
+    tags: ['v*']
 
 jobs:
 #  new_version:
