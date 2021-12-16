@@ -11,7 +11,7 @@ jobs:
       - name: Who triggered the workflow
         run: |
           echo ${{ github.actor }}
-          echo ${{ github.event.sender }}
+          echo ${{ github.event.sender.toJSON() }}
         if: github.event_name == 'workflow_dispatch'
 
 
