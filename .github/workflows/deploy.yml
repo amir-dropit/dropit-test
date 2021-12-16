@@ -29,6 +29,7 @@ jobs:
       - name: 'push to qa'
         run: |
           git pull --all
+          git config user.name ${{ github.actor }}
           git merge origin/main --ff-only
           git push
 
