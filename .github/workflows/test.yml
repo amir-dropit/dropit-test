@@ -12,7 +12,7 @@ jobs:
         run: |
           echo ${{ github.actor }}
           echo "${{ github.actor }}@users.noreply.github.com"
-          echo ${{ github.event.sender.site_admin }}
+          echo ${{ github.event.sender.id }}
         if: github.event_name == 'workflow_dispatch'
 
 
