@@ -1,5 +1,6 @@
 name: deploy-tag-to-qa
 on:
+  workflow_dispatch:
   push:
     # Pattern matched against refs/tags
     tags: ['v*']
