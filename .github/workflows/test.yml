@@ -7,13 +7,15 @@ on:
 jobs:
   update_qa:
     runs-on: ubuntu-latest
+    env:
+      GH_USERNAME: ${{ github.actor }}
+      GH_ID: ${{ github.event.sender.id }}
     steps:
       - name: Who triggered the workflow
         run: |
           echo ${{ github.actor }}
-          echo "${{ github.actor }}@users.noreply.github.com"
+          echo "${GH_ID}+${GH_USERNAME}@users.noreply.github.com"
           echo ${{ github.event.sender.id }}
         if: github.event_name == 'workflow_dispatch'
-
 
 
