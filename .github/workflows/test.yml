@@ -11,6 +11,8 @@ jobs:
       - name: Who triggered the workflow
         run: |
           echo ${{ github.actor }}
+          echo ${{ github.actor.name }}
+          echo ${{ github.actor.email }}
           echo ${{ github.event.sender.site_admin }}
         if: github.event_name == 'workflow_dispatch'
 
